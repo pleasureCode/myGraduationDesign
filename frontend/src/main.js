@@ -9,8 +9,8 @@ app.use(store);
 app.use(router);
 app.mount('#app');
 
-// import { request } from '@/network/request';
-//
+import { request } from '@/network/request';
+
 // request({
 //   url: '/diary'
 // })
@@ -20,3 +20,12 @@ app.mount('#app');
 //   .catch((err) => {
 //     console.log(err);
 //   });
+// import { getDiary, addDiary } from '@/network/diary';
+
+// addDiary('1', ',', ',', ',').then((res) => {
+//   console.log(res);
+// });
+
+// getDiary().then((res) => {
+//   console.log(res.data);
+// });

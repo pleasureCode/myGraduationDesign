@@ -137,7 +137,7 @@ module.exports = {
       'error',
       {
         // 单行代码最大长度，默认80，最大长度一般会设置为100-120
-        printWidth: 100,
+        printWidth: 80,
         // 缩进长度，默认2
         tabWidth: 2,
         // 是否使用缩进符，而使用空格，默认false

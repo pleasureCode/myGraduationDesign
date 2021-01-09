@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export function request(config) {
   const instance = axios.create({
+    // 后端数据地址
     baseURL: 'http://127.0.0.1:3000',
     timeout: 5000
   });

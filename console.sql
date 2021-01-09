@@ -15,7 +15,6 @@ create TABLE staffDiary
 (
     diaryId      INT           NOT NULL AUTO_INCREMENT,
     userName     VARCHAR(50)   NOT NULL,
-    userId       INT           NOT NULL,
     diaryContent VARCHAR(1000) NOT NULL,
     diaryTime    VARCHAR(60)   NOT NULL,
     PRIMARY KEY (diaryId)
@@ -40,9 +39,9 @@ insert into staffusers
 values (null, "主管", "123654789@qq.com", "123456", "管理员");
 
 insert into staffdiary
-values (1, "管理员", 1, "我是今天的内容", "2020-12-02");
+values (1, "管理员", "我是今天的内容", "2020-12-02");
 insert into staffdiary
-values (null, "主管", 2, "我是主管", "2020-12-02");
+values (null, "主管", "我是主管", "2020-12-02");
 
 insert into task
 values (1, "管理员", "主管", "你好", "今天是个好日子1", "2020-12-02", "2020-12-30");
