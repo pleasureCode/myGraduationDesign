@@ -90,7 +90,7 @@ export default {
 .diary_left {
   float: left;
   position: relative;
-  width: 880px;
+  width: 1240px;
   height: 980px;
   margin: 10px 30px 1px;
   line-height: 20px;
@@ -104,7 +104,7 @@ export default {
   position: absolute;
   left: 23px;
   top: 15px;
-  width: 834px;
+  width: 1194px;
   height: 940px;
   line-height: 20px;
   background-color: rgba(249, 205, 173, 100);
@@ -131,7 +131,7 @@ export default {
 }
 
 .input_p label input {
-  width: 386px;
+  width: 422px;
   height: 73px;
   border-radius: 10px;
   background-color: rgba(200, 200, 169, 100);
@@ -149,7 +149,7 @@ export default {
 }
 
 .input_p_content textarea {
-  width: 700px;
+  width: 1060px;
   height: 500px;
   margin-top: 10px;
   line-height: 29px;
@@ -173,28 +173,5 @@ export default {
   font-size: 20px;
   text-align: center;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.3);
-}
-
-.diary_right {
-  float: right;
-  width: 280px;
-  height: 780px;
-  margin: 10px 30px 0;
-  line-height: 20px;
-  background-color: rgba(205, 164, 158, 100);
-  text-align: center;
-  box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(187, 187, 187, 100);
-}
-
-.diary_right_content {
-  width: 250px;
-  height: 720px;
-  margin: 30px 15px;
-  line-height: 20px;
-  background-color: rgba(249, 205, 173, 100);
-  text-align: center;
-  box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(187, 187, 187, 100);
 }
 </style>

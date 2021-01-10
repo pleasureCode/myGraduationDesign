@@ -8,14 +8,45 @@
     </div>
     <div class="home_content">
       <div class="home_news">公司 最近 新闻</div>
-      <div class="home_task">最近公司任务：</div>
+      <div class="home_task">
+        最近公司任务：
+        <div
+          class="home_task_content"
+          v-for="(item, index) in allTask"
+          :key="index"
+        >
+          <p>员工：{{ item.taskGetName }}</p>
+          <p>任务名：{{ item.taskTitle }}</p>
+          <p>完成时间：{{ item.taskFinishTime }}</p>
+          <hr />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getTask } from '@/network/task';
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  data() {
+    return {
+      allTask: []
+    };
+  },
+  created() {
+    this.getMyTask();
+  },
+  methods: {
+    getMyTask() {
+      getTask().then((res) => {
+        // console.log(res.data);
+        this.allTask = res.data;
+        // console.log(this.allTask);
+      });
+    }
+  }
 };
 </script>
 
@@ -112,7 +143,8 @@ export default {
   margin: 30px 50px;
   line-height: 20px;
   background-color: rgba(249, 205, 173, 100);
-  text-align: center;
+  text-align: left;
+  overflow: auto;
   border: 1px solid rgba(187, 187, 187, 100);
   box-shadow: 0 2px 6px 3px rgba(0, 0, 0, 0.2);
 }

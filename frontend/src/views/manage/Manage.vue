@@ -8,11 +8,11 @@
           v-for="item in showDiary"
           :key="item"
         >
-          <p>用户名：{{ item.userName }}</p>
+          <p>用户：{{ item.userName }}</p>
           <p>标题：{{ item.diaryTitle }}</p>
           <p>内容：{{ item.diaryContent }}</p>
           <p>时间：{{ item.diaryTime }}</p>
-          <br />
+          <hr />
         </div>
       </div>
       <div class="manage_left_bottom">
@@ -28,7 +28,7 @@
           <p>内容：{{ item.taskContent }}</p>
           <p>发送时间：{{ item.taskTime }}</p>
           <p>预计完成时间：{{ item.taskFinishTime }}</p>
-          <br />
+          <hr />
         </div>
       </div>
     </div>
@@ -87,17 +87,17 @@ export default {
     getAllUser() {
       allUser().then((res) => {
         res = res.data;
-        console.log(res);
+        // console.log(res);
         for (let a = 0; a < res.length; a++) {
           if (res[a].authorityNames === '管理员') {
             this.allUserRoot.push(res[a].userName);
           } else {
             this.allUserStaff.push(res[a].userName);
           }
-          console.log();
+          // console.log();
         }
         // this.allUserRoot = res.data;
-        console.log(this.allUserRoot);
+        // console.log(this.allUserRoot);
       });
     },
     getContent() {
@@ -113,20 +113,19 @@ export default {
     enter(item) {
       this.showTask = [];
       this.showDiary = [];
-      console.log('enter');
       for (let a = 0; a < this.contentDiary.length; a++) {
         if (this.contentDiary[a].userName === item) {
-          this.showDiary.push(this.contentDiary[0]);
+          this.showDiary.push(this.contentDiary[a]);
         }
       }
       for (let a = 0; a < this.contentTask.length; a++) {
         if (this.contentTask[a].taskGetName === item) {
-          this.showTask.push(this.contentTask[0]);
+          this.showTask.push(this.contentTask[a]);
         }
       }
-      console.log(this.showDiary);
-      console.log(this.showTask);
-      console.log(item);
+      // console.log('showTask', this.showTask);
+      // console.log('showDiary', this.showDiary);
+      // console.log(item);
     }
   }
 };
@@ -161,9 +160,17 @@ export default {
   height: 360px;
   line-height: 20px;
   background-color: rgba(249, 205, 173, 100);
-  text-align: center;
+  text-align: left;
+  overflow: auto;
   box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.manage_left_top h2 {
+  color: #fe4365;
+  font-size: 40px;
+  margin: 20px 0;
+  text-align: center;
 }
 
 .manage_left_bottom {
@@ -174,9 +181,17 @@ export default {
   height: 361px;
   line-height: 20px;
   background-color: rgba(249, 205, 173, 100);
-  text-align: center;
+  text-align: left;
+  overflow: auto;
   box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.manage_left_bottom h2 {
+  color: #fe4365;
+  font-size: 40px;
+  margin: 20px 0;
+  text-align: center;
 }
 
 /*.manage_left_bottom_content {*/
@@ -202,7 +217,23 @@ export default {
   line-height: 20px;
   background-color: rgba(249, 205, 173, 100);
   text-align: center;
+  overflow: auto;
   box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.manage_right_content_root button {
+  bottom: 48px;
+  width: 200px;
+  height: 60px;
+  line-height: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px 5px 5px 5px;
+  background-color: rgba(229, 131, 8, 100);
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.3);
 }
 </style>

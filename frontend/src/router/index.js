@@ -77,15 +77,15 @@ router.beforeEach((to, from, next) => {
     next();
   } else {
     let token = sessionStorage.getItem('token');
-    console.log('token' + token);
+    // console.log('token' + token);
     if (token === '' || token === null) {
       store.commit('isMainTabBarT');
       next('/login');
-      console.log('非登录入口：' + token);
+      // console.log('非登录入口：' + token);
     } else {
       store.commit('isMainTabBarF');
       // next('/login');
-      console.log('登录入口：' + token);
+      // console.log('登录入口：' + token);
       next();
     }
   }

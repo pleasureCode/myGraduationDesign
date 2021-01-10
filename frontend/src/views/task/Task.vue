@@ -10,6 +10,7 @@
               v-model="taskGetName"
               name="taskGetName"
               type="text"
+              id="taskGetName"
               placeholder="请输入接收方名字"
             />
           </label>
@@ -46,13 +47,37 @@
       </div>
     </div>
     <div class="task_right">
-      <div class="task_right_content"></div>
+      <div class="task_right_content">
+        <h2>管理员：</h2>
+        <div
+          class="task_right_content_root"
+          v-for="(item, index) in allUserRoot"
+          :key="index"
+        >
+          <br />
+          <button type="submit" title="点击显示" @click="enter(item)">
+            {{ item }}
+          </button>
+        </div>
+        <h2>员工：</h2>
+        <div
+          class="task_right_content_root"
+          v-for="item in allUserStaff"
+          :key="item"
+        >
+          <br />
+          <button type="submit" title="点击显示" @click="enter(item)">
+            {{ item }}
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { addTask } from '@/network/task';
+import { allUser } from '@/network/userDate';
 
 export default {
   name: 'Task',
@@ -64,10 +89,31 @@ export default {
       taskTitle: '',
       taskContent: '',
       taskTime: '',
-      taskFinishTime: ''
+      taskFinishTime: '',
+      allUserRoot: [],
+      allUserStaff: []
     };
   },
+  created() {
+    this.getAllUser();
+  },
   methods: {
+    getAllUser() {
+      allUser().then((res) => {
+        res = res.data;
+        // console.log(res);
+        for (let a = 0; a < res.length; a++) {
+          if (res[a].authorityNames === '管理员') {
+            this.allUserRoot.push(res[a].userName);
+          } else {
+            this.allUserStaff.push(res[a].userName);
+          }
+          // console.log();
+        }
+        // this.allUserRoot = res.data;
+        // console.log(this.allUserRoot);
+      });
+    },
     submit() {
       let myDate = new Date();
       this.taskTime = myDate.toLocaleDateString();
@@ -96,11 +142,15 @@ export default {
       )
         .then((res) => {
           alert(res.data.msg);
-          console.log(res);
+          // console.log(res);
         })
         .catch((err) => {
           console.log(err);
         });
+    },
+    enter(item) {
+      this.taskGetName = item;
+      // console.log(item);
     }
   }
 };
@@ -224,7 +274,23 @@ export default {
   line-height: 20px;
   background-color: rgba(249, 205, 173, 100);
   text-align: center;
+  overflow: auto;
   box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.task_right_content_root button {
+  bottom: 48px;
+  width: 200px;
+  height: 60px;
+  line-height: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px 5px 5px 5px;
+  background-color: rgba(229, 131, 8, 100);
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.3);
 }
 </style>
