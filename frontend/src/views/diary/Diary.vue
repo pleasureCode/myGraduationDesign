@@ -19,7 +19,7 @@
             >内容：
             <br />
             <textarea
-              v-model="taskContent"
+              v-model="diaryContent"
               name="taskContent"
               placeholder="请输入文本内容"
             />
@@ -28,7 +28,7 @@
         <div class="input_p">
           <label
             >时间：
-            <input v-model="taskTime" name="taskFinishTime" type="date" />
+            <input v-model="diaryTime" name="taskFinishTime" type="date" />
           </label>
         </div>
         <button type="submit" title="发布" @click="submit">发布</button>
@@ -49,8 +49,8 @@ export default {
     return {
       userName: '',
       diaryTitle: '',
-      taskContent: '',
-      taskTime: ''
+      diaryContent: '',
+      diaryTime: ''
     };
   },
   methods: {
@@ -62,11 +62,16 @@ export default {
         'diaryTitle:',
         this.diaryTitle,
         'taskContent:',
-        this.taskContent,
+        this.diaryContent,
         'taskTime:',
-        this.taskTime
+        this.diaryTime
       );
-      addDiary(this.userName, this.diaryTitle, this.taskContent, this.taskTime)
+      addDiary(
+        this.userName,
+        this.diaryTitle,
+        this.diaryContent,
+        this.diaryTime
+      )
         .then((res) => {
           alert(res.data.msg);
           console.log(res.data);

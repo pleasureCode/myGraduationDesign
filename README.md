@@ -47,26 +47,7 @@ create database staffSystem
   ```
 
 - ```json
-  [
-    {
-      "taskId": 1,
-      "taskGetName": "管理员",
-      "taskSendName": "主管",
-      "taskTitle": "你好",
-      "taskContent": "今天是个好日子1",
-      "taskTime": "2020-12-02",
-      "taskFinishTime": "2020-12-30"
-    },
-    {
-      "taskId": 2,
-      "taskGetName": "主管",
-      "taskSendName": "管理员",
-      "taskTitle": "你好",
-      "taskContent": "今天是个好日子2",
-      "taskTime": "2020-12-02",
-      "taskFinishTime": "2020-12-30"
-    }
-  ]
+  
   ```
 
 
@@ -82,20 +63,18 @@ create database staffSystem
 - 失败返回json数据：
 
   ```json
-  code: 0,
-  msg: '添加任务失败'
+  
   ```
-
   
 
+  
 - 成功返回json数据：
 
   ```json
-  code: 1,
-  msg: '添加任务成功'
-  ```
-
   
+  ```
+  
+
 
 ## 获取Diary页面数据
 
@@ -106,22 +85,7 @@ create database staffSystem
   ```
 
 - ```json
-  [
-    {
-      "diaryId": 1,
-      "userName": "管理员",
-      "userId": 1,
-      "diaryContent": "我是今天的内容",
-      "diaryTime": "2020-12-02"
-    },
-    {
-      "diaryId": 2,
-      "userName": "主管",
-      "userId": 2,
-      "diaryContent": "我是主管",
-      "diaryTime": "2020-12-02"
-    }
-  ]
+  
   ```
 
 
@@ -137,20 +101,18 @@ create database staffSystem
 - 失败返回json数据：
 
   ```json
-  code: 0,
-  msg: '添加总结失败'
+  
   ```
-
   
 
+  
 - 成功返回json数据：
 
   ```json
-  code: 1,
-  msg: '添加总结成功'
-  ```
-
   
+  ```
+  
+
 
 ## 查看用户数据
 
@@ -161,22 +123,7 @@ create database staffSystem
   ```
 
 - ```json
-  [
-    {
-      "userId": 1,
-      "userName": "管理员",
-      "email": "1534273733@qq.com",
-      "psw": "123456",
-      "authorityNames": "管理员"
-    },
-    {
-      "userId": 2,
-      "userName": "主管",
-      "email": "123654789@qq.com",
-      "psw": "123456",
-      "authorityNames": "管理员"
-    }
-  ]
+  
   ```
 
 =======

@@ -55,13 +55,13 @@ router.post('/register', function (req, res, next) {
     if (err) {
       res.json({
         code: 0,
-        msg: '添加总结失败',
+        msg: '注册失败',
         err: err
       })
     } else {
       res.json({
         code: 1,
-        msg: '添加总结成功！'
+        msg: '注册成功！'
       })
     }
   })
